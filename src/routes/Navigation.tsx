@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react'
-import { Routes, NavLink, Navigate, Route } from 'react-router-dom'
+import { Routes, NavLink, Navigate, Route, BrowserRouter } from 'react-router-dom'
 import logo from '../logo.svg'
 import routes from './routes'
 // import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
@@ -7,7 +7,7 @@ import routes from './routes'
 const Navigation = () => {
     return (
         <Suspense fallback={ <div>Loading...</div> }>
-            <Route>
+            <BrowserRouter>
                 <div className="main-layout">
                     <nav>
                         <img src={ logo } alt="React logo"/>
@@ -31,7 +31,9 @@ const Navigation = () => {
                         <Route path="/*" element={ <Navigate to={ routes[ 0 ].to } replace/> }/>
                     </Routes>
                 </div>
-            </Route>
+
+            </BrowserRouter>
+
         </Suspense>
     );
 };
